@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  coachlinx-frontend:
+  # 生成するコンテナ名
+    container_name: coachlinx-frontend
+    build: .
+    volumes:
+      - ./:/usr/src/app
+    # command: sh -c 'yarn start'
+    hostname: localhost
+    ports:
+      - '3000:3000'
+    # 接続するネットワーク 
+    networks:
+      - coachlinxnetwork
+
+networks:
+  coachlinxnetwork:
+    driver: bridge
+#     ipam:
+#       driver: default
